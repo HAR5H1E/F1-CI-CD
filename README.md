@@ -21,7 +21,7 @@ Evaluated by Mean Absolute Error (MAE), trained on 2023–2024 seasons, tested o
 | CatBoost | 2.50 | ~8% better |
 | LightGBM | 2.77 | no improvement |
  
-Random Forest was selected as the production model. It's worth noting the model predicts *expected* finishing position under normal race conditions — it does not and cannot predict incidents like crashes or mechanical failures, which are excluded from training by design (see [Design Decisions](#design-decisions)).
+Random Forest was selected as the production model. It's worth noting the model predicts *expected* finishing position under normal race conditions — it does not and cannot predict incidents like crashes or mechanical failures, which are excluded from training by design
  
 ## Tech stack
  
