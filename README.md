@@ -9,7 +9,7 @@ _Coming soon — deployment in progress._
  
 1. **Data pipeline** pulls race, qualifying, and practice session data from FastF1 across the 2023–2025 seasons and builds one training row per driver per race.
 2. **Model** (Random Forest) is trained to predict finishing position from pre-race signals only — no information that wouldn't be available before lights out.
-3. **API** (FastAPI) serves predictions, with a minimal HTML/Tailwind frontend for quick testing.
+3. **API** (FastAPI) serves predictions, with a minimal HTML for quick testing.
 ## Results
  
 Evaluated by Mean Absolute Error (MAE), trained on 2023–2024 seasons, tested on 2025:
