@@ -1,2 +1,8 @@
 #Large Folder
 DataCache/
+
+#DockerFile
+Dockerfile
+
+#CacheFiles
+App/__pycache__/

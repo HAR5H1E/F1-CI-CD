@@ -1,0 +1,8 @@
+fastapi==0.139.0
+fastf1==3.8.3
+joblib==1.5.3
+lightgbm==4.6.0
+pandas
+pydantic==2.13.4
+scikit_learn==1.8.0
+uvicorn==0.51.0

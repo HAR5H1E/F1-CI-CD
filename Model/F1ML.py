@@ -16,10 +16,10 @@ testVal  = FinalSet[FinalSet['Year'].isin([2025])]
 encoder.fit(trainVal[["Abbreviation","TeamName","CountryEvent"]])
 
 trainDF = pd.DataFrame(encoder.transform(trainVal[["Abbreviation","TeamName","CountryEvent"]]),
-                       columns=encoder.get_feature_names_out())
+                       columns=encoder.get_feature_names_out(['Abbreviation', 'TeamName', 'CountryEvent']))
 
 testDF = pd.DataFrame(encoder.transform(testVal[["Abbreviation","TeamName","CountryEvent"]]),
-                       columns=encoder.get_feature_names_out())
+                       columns=encoder.get_feature_names_out(['Abbreviation', 'TeamName', 'CountryEvent']))
 
 X_Train = pd.concat([trainVal[["GridPosition","GapPole","GapLeaderFP"]].reset_index(drop=True),
                      trainDF],

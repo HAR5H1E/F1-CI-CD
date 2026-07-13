@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grid Predictions</title>
+        <link rel="Stylesheet" href=../static/style.css/>
+
+    </head>
+    <body>
+       <header>
+            <h1>Welcome</h1>
+       </header>
+       
+    <form id="SubmitForm">
+        <label for="ABV">Driver Abreviation: </label>
+        <input type ="Text" id ="ABV" name ="ABV"><br><br>
+        <label for="TEAM">TeamName: </label>
+        <input type ="Text" id ="TEAM" name ="TEAM"><br><br>
+        <label for="CountryEvent">CountryEvent: </label>
+        <input type ="Text" id ="CountryEvent" name ="CountryEvent"><br><br>
+        <label for="GridPosition">GridPosition: </label>
+        <input type ="Text" id ="GridPosition" name ="GridPosition"><br><br>
+        <label for="GapPole">Gap to Pole: </label>
+        <input type ="Text" id ="GapPole" name ="GapPole"><br><br>
+        <label for="GapLeader">Gap to Leader in FP: </label>
+        <input type ="Text" id ="GapLeader" name ="GapLeader"><br><br>
+        <input type = "submit" value = "Submit">
+
+    </form>
+    <p id="result"></p>
+    <script>
+        
+        document.getElementById("SubmitForm").addEventListener('submit',async(e)=> {
+        e.preventDefault()
+        const formData = new FormData(e.target)
+        const Input = {
+            "Abbreviation":formData.get("ABV"),
+            "TeamName": formData.get("TEAM"),
+            "CountryEvent": formData.get("CountryEvent"),
+            "GridPosition":parseFloat(formData.get("GridPosition")),
+            "GapPole":parseFloat(formData.get("GapPole")),
+            "GapLeaderFP":parseFloat(formData.get("GapLeader"))
+        };
+
+        const response = await fetch("/Predict",{
+            method : "POST",
+            headers :{'Content-Type':"application/json"},
+            body : JSON.stringify(Input)
+        });
+
+        const data = await response.json()
+
+        console.log(data)
+        document.getElementById("result").textContent = `Predicted Position: ${data.Final_Position_Rounded}`;
+        })
+    </script>
+    </body>
+</html>

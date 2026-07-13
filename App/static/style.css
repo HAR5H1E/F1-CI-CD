@@ -1,0 +1,17 @@
+header{
+    background-color: black;
+    color:white;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4%;
+    
+}
+
+form{
+    margin-left: 2%;
+}
+
+body{
+    margin:0;
+}
