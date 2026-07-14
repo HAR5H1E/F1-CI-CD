@@ -6,3 +6,4 @@ Dockerfile
 
 #CacheFiles
 App/__pycache__/
+App/.pytest_cache/

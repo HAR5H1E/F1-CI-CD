@@ -2,12 +2,14 @@ from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
+from pathlib import Path
 import pandas as pd
 import uvicorn
 import joblib
 
 app = FastAPI()
-app.mount("/static",StaticFiles(directory="App/static"),name="static")
+BASE_DIR = Path(__file__).resolve().parent
+app.mount("/static",StaticFiles(directory= BASE_DIR / "static"),name="static")
 
 class PredictionResponse(BaseModel):
     Abbreviation : str
@@ -17,9 +19,9 @@ class PredictionResponse(BaseModel):
     GapPole:float
     GapLeaderFP:float
 
-model = joblib.load("JoblibFiles/F1Modelv1.pkl")
-encoder = joblib.load("JoblibFiles/F1Encoder.pkl")
-features = joblib.load("JoblibFiles/F1Columns.pkl")
+model = joblib.load(BASE_DIR.resolve().parent / "JoblibFiles/F1Modelv1.pkl")
+encoder = joblib.load(BASE_DIR.resolve().parent  / "JoblibFiles/F1Encoder.pkl")
+features = joblib.load(BASE_DIR.resolve().parent  /"JoblibFiles/F1Columns.pkl")
 
 
 @app.get("/health")
@@ -28,7 +30,7 @@ def getHealth():
 
 @app.get("/",response_class=HTMLResponse)
 def home():
-    with open("App/templates/index.html") as file:
+    with open(BASE_DIR/"templates/index.html") as file:
         return file.read()
 
 @app.post("/Predict")
