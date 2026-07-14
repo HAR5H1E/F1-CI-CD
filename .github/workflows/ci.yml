@@ -21,7 +21,7 @@ jobs:
         run: pip install -r /App/requirements.txt
 
       - name: Run tests
-        working_directory: App/
+        working-directory: App/
         run: pytest
 
       - name: Build Docker
