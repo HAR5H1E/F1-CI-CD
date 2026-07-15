@@ -70,7 +70,7 @@ jobs:
         run: |
           aws ecs update-service \
             --cluster ecstatic-dog-hxewov \
-            --service ecstatic-dog-hxewov \
+            --service F1-predictor-service-2vwd2noh \
             --force-new-deployment
   
 
