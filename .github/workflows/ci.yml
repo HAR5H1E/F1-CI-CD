@@ -69,8 +69,8 @@ jobs:
       - name: Force new ECS deployment
         run: |
           aws ecs update-service \
-            --cluster f1-predictor-cluster \
-            --service f1-predictor-service \
+            --cluster ecstatic-dog-hxewov \
+            --service ecstatic-dog-hxewov \
             --force-new-deployment
   
 
